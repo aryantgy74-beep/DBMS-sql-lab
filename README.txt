@@ -1,1 +1,1 @@
-I using MySQL workbench to run these queries and check their output
+I am using MySQL workbench to run these queries and check their output
