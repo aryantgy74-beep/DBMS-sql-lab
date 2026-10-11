@@ -1,0 +1,37 @@
+-- LAB 1: DDL (MySQL)
+CREATE DATABASE IF NOT EXISTS CollegeDB;
+USE CollegeDB;
+CREATE TABLE Student(Student_ID INT PRIMARY KEY, Name VARCHAR(50) NOT NULL, Age INT, Course VARCHAR(50), City VARCHAR(50));
+CREATE TABLE Employee(Emp_ID INT PRIMARY KEY, Emp_Name VARCHAR(50), Department VARCHAR(50), Salary DECIMAL(10,2), Email VARCHAR(100) UNIQUE);
+CREATE TABLE Department(Dept_ID INT PRIMARY KEY, Dept_Name VARCHAR(50), Location VARCHAR(50));
+CREATE TABLE Product(Product_ID INT PRIMARY KEY, Product_Name VARCHAR(50), Price DECIMAL(10,2) CHECK(Price>0), Quantity INT);
+CREATE TABLE Customer(Customer_ID INT PRIMARY KEY, Customer_Name VARCHAR(50), Email VARCHAR(100), Phone VARCHAR(15));
+CREATE TABLE Course(Course_ID INT PRIMARY KEY, Course_Name VARCHAR(50), Duration VARCHAR(30), Fees DECIMAL(10,2));
+CREATE TABLE Faculty(Faculty_ID INT PRIMARY KEY, Faculty_Name VARCHAR(50), Subject VARCHAR(50), Salary DECIMAL(10,2));
+CREATE TABLE Library(Book_ID INT PRIMARY KEY, Book_Name VARCHAR(100), Author VARCHAR(50), Price DECIMAL(10,2));
+-- Department primary key example
+CREATE TABLE Department_Demo(Dept_ID INT PRIMARY KEY, Dept_Name VARCHAR(50));
+-- Student primary key and NOT NULL example
+CREATE TABLE Student_Demo(Student_ID INT PRIMARY KEY, Name VARCHAR(50) NOT NULL);
+-- UNIQUE and CHECK examples are shown in Employee and Product above.
+ALTER TABLE Student ADD COLUMN Email VARCHAR(100);
+ALTER TABLE Student ADD COLUMN Phone VARCHAR(15);
+ALTER TABLE Student MODIFY COLUMN Name VARCHAR(100) NOT NULL;
+ALTER TABLE Student RENAME TO Student_Details;
+ALTER TABLE Student_Details CHANGE COLUMN City Address VARCHAR(50);
+ALTER TABLE Employee ADD COLUMN Bonus_Salary DECIMAL(10,2);
+ALTER TABLE Student_Details DROP COLUMN Phone;
+ALTER TABLE Student_Details DROP COLUMN Email;
+ALTER TABLE Student_Details CHANGE COLUMN Address City VARCHAR(50);
+ALTER TABLE Student_Details RENAME TO Student;
+CREATE TABLE Truncate_Demo(ID INT);
+INSERT INTO Truncate_Demo VALUES(1);
+TRUNCATE TABLE Truncate_Demo;
+CREATE TABLE Course_Demo(ID INT);
+DROP TABLE Course_Demo;
+CREATE TABLE Customer_Demo(ID INT);
+DROP TABLE Customer_Demo;
+CREATE TABLE Student_Complete(Student_ID INT PRIMARY KEY, Name VARCHAR(50) NOT NULL, Email VARCHAR(100) UNIQUE, Age INT CHECK(Age>=16), City VARCHAR(50));
+ALTER TABLE Student_Complete ADD COLUMN Phone VARCHAR(15);
+ALTER TABLE Student_Complete DROP COLUMN Phone;
+SHOW TABLES;
