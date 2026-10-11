@@ -1,11 +1,5 @@
--- LAB 5: SQL JOINS (MySQL)
--- Corrected, standalone version. Run the whole script in MySQL Workbench.
--- It recreates only these four tables inside CollegeDB.
-
 CREATE DATABASE IF NOT EXISTS CollegeDB;
 USE CollegeDB;
-
--- Drop child tables first so the script can be run again safely.
 DROP TABLE IF EXISTS Student;
 DROP TABLE IF EXISTS Employee;
 DROP TABLE IF EXISTS Course;
