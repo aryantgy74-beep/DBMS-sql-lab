@@ -1,5 +1,6 @@
 -- LAB 3: SQL FUNCTIONS 
-CREATE DATABASE IF NOT EXISTS CollegeDB; USE CollegeDB;
+CREATE DATABASE IF NOT EXISTS CollegeDB_Functions;
+USE CollegeDB_Functions;
 CREATE TABLE IF NOT EXISTS Student(Student_ID INT PRIMARY KEY, Name VARCHAR(50), Age INT, Course VARCHAR(50), City VARCHAR(50));
 CREATE TABLE IF NOT EXISTS Employee(Emp_ID INT PRIMARY KEY, Emp_Name VARCHAR(50), Department VARCHAR(50), Salary DECIMAL(10,2), Joining_Date DATE);
 INSERT INTO Student VALUES(101,'Aman Sharma',20,'BTech','Delhi'),(102,'Riya Singh',19,'BCA','Meerut'),(103,'Karan Kumar',21,'BTech','Jaipur') ON DUPLICATE KEY UPDATE Name=VALUES(Name);
