@@ -1,4 +1,4 @@
--- LAB 5: SQL JOINS (MySQL)
+-- LAB 5: SQL JOINS
 CREATE DATABASE IF NOT EXISTS CollegeDB; USE CollegeDB;
 CREATE TABLE IF NOT EXISTS Department(Dept_ID INT PRIMARY KEY, Dept_Name VARCHAR(50), Location VARCHAR(50));
 CREATE TABLE IF NOT EXISTS Course(Course_ID INT PRIMARY KEY, Course_Name VARCHAR(50), Duration VARCHAR(30));
@@ -8,20 +8,20 @@ INSERT INTO Department VALUES(1,'IT','Delhi'),(2,'HR','Jaipur'),(3,'Sales','Meer
 INSERT INTO Course VALUES(101,'BTech AI-ML','4 years'),(102,'BCA','3 years'),(103,'BBA','3 years') ON DUPLICATE KEY UPDATE Course_Name=VALUES(Course_Name);
 INSERT INTO Student VALUES(1,'Aman',20,1,101),(2,'Riya',19,2,102),(3,'Karan',21,1,101),(4,'Neha',20,NULL,103) ON DUPLICATE KEY UPDATE Name=VALUES(Name);
 INSERT INTO Employee VALUES(201,'Arun',45000,1,NULL),(202,'Meena',40000,2,201),(203,'Dev',52000,1,201),(204,'Sara',36000,3,202) ON DUPLICATE KEY UPDATE Emp_Name=VALUES(Emp_Name);
--- Q1-Q5 INNER JOIN examples
+-- Q1-Q5 
 SELECT s.Name,d.Dept_Name FROM Student s INNER JOIN Department d ON s.Dept_ID=d.Dept_ID;
 SELECT s.Name AS Student_Name,d.Dept_Name FROM Student s JOIN Department d ON s.Dept_ID=d.Dept_ID;
 SELECT e.Emp_Name,d.Dept_Name FROM Employee e JOIN Department d ON e.Dept_ID=d.Dept_ID;
 SELECT s.Name,c.Course_Name,c.Duration FROM Student s JOIN Course c ON s.Course_ID=c.Course_ID;
 SELECT s.Name,d.Dept_Name FROM Student s JOIN Department d ON s.Dept_ID=d.Dept_ID WHERE d.Dept_Name='IT';
--- Q6-Q11 LEFT/RIGHT joins and unmatched rows
+-- Q6-Q11 
 SELECT s.Name,d.Dept_Name FROM Student s LEFT JOIN Department d ON s.Dept_ID=d.Dept_ID;
 SELECT s.Name,d.Dept_Name FROM Student s LEFT JOIN Department d ON s.Dept_ID=d.Dept_ID;
 SELECT s.Name,d.Dept_Name FROM Student s RIGHT JOIN Department d ON s.Dept_ID=d.Dept_ID;
 SELECT d.Dept_Name,s.Name FROM Department d LEFT JOIN Student s ON d.Dept_ID=s.Dept_ID;
 SELECT s.Name FROM Student s LEFT JOIN Department d ON s.Dept_ID=d.Dept_ID WHERE d.Dept_ID IS NULL;
 SELECT d.Dept_Name FROM Department d LEFT JOIN Student s ON d.Dept_ID=s.Dept_ID WHERE s.Student_ID IS NULL;
--- Q12 FULL OUTER JOIN workaround in MySQL
+-- Q12 
 SELECT s.Name,d.Dept_Name FROM Student s LEFT JOIN Department d ON s.Dept_ID=d.Dept_ID
 UNION
 SELECT s.Name,d.Dept_Name FROM Student s RIGHT JOIN Department d ON s.Dept_ID=d.Dept_ID;
