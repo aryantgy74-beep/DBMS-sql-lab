@@ -1,4 +1,4 @@
--- LAB 1: DDL (MySQL)
+-- LAB 1: DDL
 CREATE DATABASE IF NOT EXISTS CollegeDB;
 USE CollegeDB;
 CREATE TABLE Student(Student_ID INT PRIMARY KEY, Name VARCHAR(50) NOT NULL, Age INT, Course VARCHAR(50), City VARCHAR(50));
@@ -9,11 +9,8 @@ CREATE TABLE Customer(Customer_ID INT PRIMARY KEY, Customer_Name VARCHAR(50), Em
 CREATE TABLE Course(Course_ID INT PRIMARY KEY, Course_Name VARCHAR(50), Duration VARCHAR(30), Fees DECIMAL(10,2));
 CREATE TABLE Faculty(Faculty_ID INT PRIMARY KEY, Faculty_Name VARCHAR(50), Subject VARCHAR(50), Salary DECIMAL(10,2));
 CREATE TABLE Library(Book_ID INT PRIMARY KEY, Book_Name VARCHAR(100), Author VARCHAR(50), Price DECIMAL(10,2));
--- Department primary key example
 CREATE TABLE Department_Demo(Dept_ID INT PRIMARY KEY, Dept_Name VARCHAR(50));
--- Student primary key and NOT NULL example
 CREATE TABLE Student_Demo(Student_ID INT PRIMARY KEY, Name VARCHAR(50) NOT NULL);
--- UNIQUE and CHECK examples are shown in Employee and Product above.
 ALTER TABLE Student ADD COLUMN Email VARCHAR(100);
 ALTER TABLE Student ADD COLUMN Phone VARCHAR(15);
 ALTER TABLE Student MODIFY COLUMN Name VARCHAR(100) NOT NULL;
