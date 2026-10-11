@@ -1,7 +1,3 @@
--- LAB 2: DML COMMANDS (MySQL 8.0)
--- This script uses its own database so it will not change Lab 1 tables.
--- Safe to run again: the tables below are recreated each time.
-
 CREATE DATABASE IF NOT EXISTS CollegeDB_DML;
 USE CollegeDB_DML;
 
